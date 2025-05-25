@@ -9,12 +9,16 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-EMAIL_USER = 'gauravkakran24@gmail.com'       # replace with your email
-EMAIL_PASS = 'bdpsxfnvxeewivls'           # replace with your app password
+EMAIL_USER = ''
+EMAIL_PASS = ''
+# EMAIL_USER = 'gauravkakran24@gmail.com'
+# EMAIL_PASS = 'bdpsxfnvxeewivls'
 
 @app.route('/send-emails', methods=['POST'])
 def send_emails():
     # Read form fields (for multipart/form-data)
+    EMAIL_USER = request.form.get('senderGmail')
+    EMAIL_PASS = request.form.get('password')
     subject = request.form.get('subject')
     body = request.form.get('body')
     company_email_list_str = request.form.get('company_email_list')
