@@ -3,7 +3,7 @@ from utils import parse_and_validate_companies, send_bulk_emails, user_authentic
 from scheduler import schedule_email_job
 import tempfile
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 
 def register_routes(app, scheduler):
     @app.route('/send-emails', methods=['POST'])
